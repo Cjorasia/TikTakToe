@@ -9,6 +9,13 @@ def insertLetter(Letter, pos):
 def spaceIsFree(pos):
     return board[pos] == ' '
 
+# check if board is full
+def isBoardFull(board):
+    if board.count(' ') > 1:
+        return False
+    else:
+        return True
+
 # how board looks
 def printBoard():
 
