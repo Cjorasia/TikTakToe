@@ -40,12 +40,13 @@ def IsWinner(b,l):
 def playerMove():
     run = True
     while run:
-        move = int(input("enter position for 'X' (1-9):"))
+        move = input("enter position for 'X' (1-9):")
         try:
+            move = int(move)
             if move > 0 and move < 10:
                 if spaceIsFree(move):
                     run = False
-                    insertLetter('X', move)
+                    insertLetter('X', move) # move is position
                 else:
                     print("sorry, space is aquired!")
             
@@ -124,7 +125,6 @@ def main():
         else:
             print("you win!")
             break
-
 
     if isBoardFull(board):
         print("Tie game")
