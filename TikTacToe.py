@@ -36,4 +36,26 @@ def IsWinner(b,l):
     (b[1] == l and b[5] == l and b[9] == l) or
     (b[3] == l and b[5] == l and b[7] == l))
 
+# players move fuction
+def move():
+    run = True
+    while True:
+        move = int(input("enter position for 'X' (1-9):"))
+        try:
+            if move > 0 and move < 10:
+                if spaceIsFree(move):
+                    run = False
+                    insertLetter('X', move)
+                else:
+                    print("sorry, space is aquired!")
+            
+            else:
+                print('wrong input! please check and try again')
+            
+        except:
+            print("please type a number")
+
+
+
+
 printBoard()
