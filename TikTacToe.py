@@ -19,7 +19,7 @@ def isBoardFull(board):
         return True
 
 # how board looks
-def printBoard():
+def printBoard(board):
 
     print(' ' + board[1] + '|' + board[2] + '|' + board[3])
     print('--------')
@@ -39,7 +39,7 @@ def IsWinner(b,l):
     (b[3] == l and b[5] == l and b[7] == l))
 
 # players move fuction
-def move():
+def playerMove():
     run = True
     while True:
         move = int(input("enter position for 'X' (1-9):"))
@@ -102,7 +102,41 @@ def selectRandom(li):
     r = random.randrange(0,ln)
     return li[r]
 
+# define main 
+def main():
+    print("Welcome to the game!")
+    printBoard(board)
+
+    while not(isBoardFull(board)):
+        if not(IsWinner(board , 'O')):
+            playerMove()
+            printBoard(board)
+        else:
+            print("sorry you loose!")
+            break
+
+        if not(IsWinner(board , 'X')):
+            move = computerMove()
+            if move == 0:
+                print(" ")
+            else:
+                insertLetter('O' , move)
+                print('computer placed an o on position' , move , ':')
+                printBoard(board)
+        else:
+            print("you win!")
+            break
 
 
+    if isBoardFull(board):
+        print("Tie game")
 
-printBoard()
+# play again?
+while True:
+    x = input("Do you want to play again? (y/n)")
+    if x.lower() == 'y':
+        board = [' ' for x in range(10)]
+        print('--------------------')
+        main()
+    else:
+        break
