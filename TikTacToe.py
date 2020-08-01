@@ -49,7 +49,7 @@ def playerMove():
                     insertLetter('X', move) # move is position
                 else:
                     print("sorry, space is aquired!")
-            
+
             else:
                 print('wrong input! please check and try again')
             
@@ -68,6 +68,8 @@ def computerMove():
             if IsWinner(boardcopy, let):
                 move = i
                 return move
+    
+    # MAKING PC UNDEFEATABLE!
 
     # check for corners
     cornersOpen = []
@@ -107,6 +109,7 @@ def main():
     printBoard(board)
 
     while not(isBoardFull(board)):
+        
         if not(IsWinner(board , 'O')):
             playerMove()
             printBoard(board)
@@ -130,11 +133,19 @@ def main():
         print("Tie game")
 
 # play again?
+x = True
+
 while True:
-    x = input("Do you want to play again? (y/n)")
-    if x.lower() == 'y':
-        board = [' ' for x in range(10)]
-        print('--------------------')
+    if x :
         main()
+        x = False
     else:
-        break
+        again = input("wanna play again ?[y/n]:")
+
+        if again.lower() == 'y':
+            board = [' ' for x in range(10)]
+            print('--------------------')
+            main()
+            x = False
+        else:
+            break
