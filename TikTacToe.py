@@ -1,3 +1,5 @@
+import random
+
 # Board Boxes
 board = [' ' for i in range(10)]
 
@@ -92,5 +94,15 @@ def computerMove():
     if len(edgesOpen) > 0:
         move = selectRandom(edgesOpen)
         return move
+
+# select random
+def selectRandom(li):
+    import random
+    ln = len(li)
+    r = random.randrange(0,ln)
+    return li[r]
+
+
+
 
 printBoard()
