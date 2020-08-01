@@ -1,5 +1,3 @@
-import random
-
 # Board Boxes
 board = [' ' for i in range(10)]
 
@@ -41,7 +39,7 @@ def IsWinner(b,l):
 # players move fuction
 def playerMove():
     run = True
-    while True:
+    while run:
         move = int(input("enter position for 'X' (1-9):"))
         try:
             if move > 0 and move < 10:
